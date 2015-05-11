@@ -19,7 +19,7 @@ define(function() {
 
     iterate : function(obj) {
 
-	var temp = Object.getOwnPropertyNames(obj);
+	temp = Object.getOwnPropertyNames(obj);
 	var temp2 = [];
 	for (var i=0; i< temp.length; i++) {
 		temp2.push(temp[i] + ': ' + obj[ temp[i] ] );

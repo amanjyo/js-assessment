@@ -7,7 +7,7 @@ define(function() {
     },
 
     containsRepeatingLetter : function(str) {
-	return /([a-zA-Z])\1+/.test(str);
+	return /[a-zA-Z]{2}/.test(str);
     },
 
     endsWithVowel : function(str) {

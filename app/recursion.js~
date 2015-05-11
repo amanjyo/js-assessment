@@ -5,14 +5,15 @@ define(function() {
     listFiles: function(data, dirName) {
 	
 	var files_obj = out_files = [];
+	var obj_temp= {};
 	
 	files_obj = data['files'];
 
+	
 	function findDir(obj) {
-		var obj_temp= {};
 		for (val in obj) {
 			if (val == 'dir' && obj[val] == dirName) 
-				files_obj = obj['files'];
+				files_obj = obj['files];
 			else if (obj['files']) {
 				obj_temp = obj['files'];
 				for (var i = 0; i< obj_temp.length; i++) {

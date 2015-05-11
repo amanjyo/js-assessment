@@ -82,7 +82,39 @@ define(function() {
 	}
 
 	return curry([]);
- 	
+
+	/*function curry(fn) {
+		len = fn.length;
+
+		function sub_curry(fn) {
+			var stored_args = Array.prototype.slice.call(arguments, 1);
+			if (arguments.length < len) {
+				var new_args = Array.prototype.slice.call(arguments, 0),  args= stored_args.concat(new_args); 
+				return sub_curry(args);
+			} else {
+				return fn.apply(this, args);
+			}
+		}
+	}
+	return curry([]);
+	function sub_curry(fn) {
+    		var stored_args = Array.prototype.slice.call(arguments, 1);
+    		return function () {
+			var new_args = Array.prototype.slice.call(arguments, 0),  args= stored_args.concat(new_args);
+        		return fn.apply(null, args);
+    		};
+	}
+
+	len = fn.length;
+    	var stored_args = Array.prototype.slice.call(arguments, 1);
+        if (arguments.length < len) {
+		var new_args = Array.prototype.slice.call(arguments, 0);
+		var args= stored_args.concat(new_args);        	
+		return sub_curry.apply(fn, args);
+        } else {
+         	return fn.apply(null, arguments);
+        }*/
+    	
     }
   };
 });

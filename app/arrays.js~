@@ -10,7 +10,7 @@ define(function() {
 
     sum : function(arr) {
 	var total = 0;
-	for (var i= 0; i < arr.length; i++){
+	for (i= 0; i < arr.length; i++){
 		total += arr[i];
 	}
 	return total;
@@ -19,7 +19,7 @@ define(function() {
 
     remove : function(arr, item) {
 
-	var arr2 = [];
+	arr2 = [];
 	for(var i=0; i < arr.length; i++) {
 		if (arr[i] != item) {
 			arr2.push(arr[i]);
@@ -30,7 +30,7 @@ define(function() {
 
     removeWithoutCopy : function(arr, item) {
 
-	var fromIndex = 0, i = 0;
+	fromIndex = 0;
 	while (fromIndex < arr.length) {
 		i = arr.indexOf(item, fromIndex);
 		if (i != -1) {
@@ -87,7 +87,7 @@ define(function() {
     count : function(arr, item) {
 	
 	var count=0;
-	for(var i=0; i < arr.length; i++) {
+	for(i=0; i < arr.length; i++) {
 		if (arr[i] == item) {
 			count++;
 		}
@@ -117,7 +117,7 @@ define(function() {
 
     square : function(arr) {
 
-	for (var i=0; i<arr.length; i++) {
+	for (i=0; i<arr.length; i++) {
 		arr[i] *= arr[i];
 	}
 	return arr;
@@ -125,8 +125,8 @@ define(function() {
 
     findAllOccurrences : function(arr, target) {
 
-	var fromIndex = 0, i = 0;
-	var ret_arr = [];
+	fromIndex = 0;
+	ret_arr = [];
 	while(fromIndex < arr.length) {
 		i = arr.indexOf(target, fromIndex);
 		if (i != -1) {

@@ -24,11 +24,11 @@ define(function() {
 
       return getValue();*/
 
-	if (flag)
+	if (flag) {
 		return 'a';
-	else 
+	} else {
 		return 'b';
-	
+	}
     },
 
     parseInt : function(num) {
