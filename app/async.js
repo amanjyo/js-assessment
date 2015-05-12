@@ -16,7 +16,7 @@ define([ 'jquery' ], function($) {
 	var obj, names = [];
 	var promise = new Promise(function(resolve, reject) {
 		var request = new XMLHttpRequest();
- 		request.open('GET', url, true);
+ 		request.open('GET', url);
 		request.responseType = 'json';
 		request.onload = function() {
 			if (request.status == 200) {
