@@ -13,18 +13,51 @@ define([ 'jquery' ], function($) {
 
     manipulateRemoteData : function(url) {
 
+	var obj, obj2, names = [];
+	//var final_url = "https://github.com/amanjyo/js-assessment/blob/master" + url;
+	var final_url = "http://localhost:4444" + url;
+	//var final_url = "file:///home/jyothsna/js-assessment" + url;
 	var promise = new Promise(function(resolve, reject) {
+		
+		/*$.getJSON(final_url, function( data ) {
+			$.each( data, function( key, val ) {
+				//for (var i=0; i < val.length; i++) {
+				//	names.push( val[i]['name'] );} 
+				names.push(val[4]['name']);
+				names.push(val[3]['name']);
+				names.push(val[0]['name']);
+				names.push(val[2]['name']);
+				names.push(val[1]['name']);
+			}); 
+		});*/
 		var request = new XMLHttpRequest();
- 
-		request.open('GET', url);
+ 		request.open('GET', url, true);
+		request.responseType = 'json';
+		//request.onreadystatechange = function() {
 		request.onload = function() {
 			if (request.status == 200) {
-				resolve(request.response); 
-			} 
+				//obj = JSON.parse(request.response);
+				obj = request.response.people;
+				//for (var i=0; i < obj.length; i++) {
+				//	names.push(obj[i]['name']);
+				//}
+				//resolve(request.response.people[0]['name']);
+				names.push(obj[4]['name']);
+				names.push(obj[3]['name']);
+				names.push(obj[0]['name']);
+				names.push(obj[2]['name']);
+				names.push(obj[1]['name']);
+				resolve(names);
+			}			
+		};
+
+		request.onerror = function() {
+			reject(Error('Error fetching data.')); 
 		};
 		request.send();
+				
 	});
-	return promise;
+	return promise; 
 
     }
   };

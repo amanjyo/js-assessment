@@ -5,14 +5,17 @@ define(function () {
     count : function (start, end) {
 	
 	var ts;
-	var counter = start - 1;
-	return (function cnt(counter, end) {
-		if (counter >= end)  clearTimeout(ts);			
-		
-		counter++;
-		ts = setTimeout(function() { console.log(counter); cnt(counter, end); }, 100);
-					
-	})();
+	var num = start - 1;
+	var obj = {"cancel" : function cancel() {this.ts; clearTimeout(ts);} };
+
+	function cnt(num, end) {
+		if (num >= end)  return;
+		num++;
+		ts = setTimeout(function() { console.log(num); cnt(num, end); }, 100);
+	}
+
+	cnt(num, end);
+	return obj;
 	
     }
   };

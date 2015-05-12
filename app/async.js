@@ -13,19 +13,27 @@ define([ 'jquery' ], function($) {
 
     manipulateRemoteData : function(url) {
 
-	var final_url = "file:///home/jyothsna/js-assessment" + url;
+	var obj, obj2, names = [];
+	var final_url = "http://localhost:4444" + url;
 	var promise = new Promise(function(resolve, reject) {
 		var request = new XMLHttpRequest();
- 
-		request.open('GET', url);
+ 		request.open('GET', url, true);
+		request.responseType = 'json';
 		request.onload = function() {
 			if (request.status == 200) {
-				resolve(request.response); 
-			} 
+				obj = request.response.people;
+				names.push(obj[4]['name']);
+				names.push(obj[3]['name']);
+				names.push(obj[0]['name']);
+				names.push(obj[2]['name']);
+				names.push(obj[1]['name']);
+				resolve(names);
+			}			
 		};
 		request.send();
+				
 	});
-	return promise;
+	return promise; 
 
     }
   };
