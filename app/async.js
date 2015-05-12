@@ -13,8 +13,7 @@ define([ 'jquery' ], function($) {
 
     manipulateRemoteData : function(url) {
 
-	var obj, obj2, names = [];
-	var final_url = "http://localhost:4444" + url;
+	var obj, names = [];
 	var promise = new Promise(function(resolve, reject) {
 		var request = new XMLHttpRequest();
  		request.open('GET', url, true);
